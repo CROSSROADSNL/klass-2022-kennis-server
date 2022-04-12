@@ -1,0 +1,338 @@
+
+1. Werkproces 1 Implementatieplan
+Tijdens dit werkproces moeten de volgende onderdelen uitgevoerd worden. Zie ook de opdrachten 
+die ik heb vermeld. Maak ook de opdrachten voor een goeie voorbereiding op het examen.
+1. Beschrijf de gewenste situatie n.a.v. de Implementatie.
+Maak een kort verslag van de zaken die doorgevoerd gaan
+worden, Aandachtspunten:
+Beschrijf zeker de belangrijkste zaken zoals drastische technische gevolgen.
+
+2. Maken van een OU-structuur
+MaakeenOrganizationalUnit(OU)voordeorganisatiewaarvoorjewerk. 
+Aandachtspunten:
+Maakgeenorganigram,ditiseenorganigram.Ineenorganigram lees je wat de rollen zijn in 
+functies, niet welke rechten iemand heeft binnen een netwerk.
+Dus maakeenOUaan inPaintofdraw.io en vermeldvan1afdelingduidelijk welkeafdelingenen 
+mensengekoppeldzijnaan deze afdeling,denk dus ook aan subafdelingen(subOU),etc.
+
+Opdracht 1: maak een OU aan.
+Bedrijf YesFit heeft 1 Server,waaraandevolgendeafdelingengekoppeldzijn: 
+Management met subafdeling Secretariaat
+ICT met subafdelingen Helpdesk en Netwerkbeheerder 
+Medische met subafdeling Artsen 
+Baliemedewerkers (geen subafdeling)
+Personeelophetmanagementwerken2mensen 
+Op Secretariaat werken er 3 mensen
+Maak een OU waarin het goed te zien is hoe het management eruitziet.
+
+Opdracht 1 uitwerking
+Hieronder een voorbeeld van een OU.
+Let op, als je een OU maakt in draw.io of Paint, dan vermeld je minimaal:
+1. Domein (xxx.local)
+2. Hoofdgroep (Afdeling + evt gebruikers aan hoofdgroep)
+3. SubOu (subafdelingen + evt gebruikers aan Subafdeling)
+3. Beschrijf doorvoeren van GPOafkomstig uitde aangegeven implementatie eisen.
+Je moet tijdens deze opdracht nog geen GPO doorvoeren, maar slechts beschrijven hoe je 
+dit zou doorvoeren.
+
+Opdracht 2: Geef aan hoe je de GPO zou doorvoeren.
+Wachtwoord eis:
+Het wachtwoord moet voldoen aan alle eisen.
+a Het wachtwoord mag niet de laatste 5 keer al gebruikt zijn. 
+bAllemedewerkers vernieuwenelke10 dagenhun wachtwoord.
+c De minimale wachtwoordlengte moet 11 tekens zijn.
+d Wachtwoorden moeten een sterke beveiliging hebben en voldoen aan de eisen van de
+complexity requirements.
+
+Uitwerking opdracht 2
+Functionele eis .. [zelf invullen] Hier vermeld je de eis
+Voor wie [zelf invullen] Hier vermeld je voor wie
+Policy name [zelf invullen] Geef duidelijk aan welke naam je gaat gebruiken
+Setting [zelfinvullen]DIT is het belangrijkste van deze opdracht! Je
+vermeld hier hoe je en waar jij deze GPO zal doorvoeren. 
+Bijvoorbeeld computer configuratie>policies> windows security> 
+Security, etc etc
+Functionele eis .. [zelf invullen]
+Voor wie [zelf invullen]
+Policy name [zelf invullen]
+Setting [zelf invullen]
+Het pad naar aanpassen wachtwoord:
+
+Group policy management editor (edit kiezen): 
+Computer configuratie>windows setting>security setting>account policies>
+
+4. Vermeld hoe de sharenames van de aangeven afdelingen.
+Je vermeldduidelijkhoe de sharenameeruitmoetzien,je voertde sharenamenognietdoorop de 
+server. En een duidelijke share is vanuit de hoofd root vermeld. Als voorbeeld:
+\\SRV01-A\profile\%username% of \\<servernaam>\<profile>\<gebruikersnaam>
+\\SRV-01\afdelingen\trainers\
+
+Opdracht 3: geef de juiste sharenamen aan.
+Server: Srv001
+Afdelingen, Management en ICT
+Op beide afdelingen werken 2 mensen, persoon 1, persoon 2.
+Uitwerking opdracht 3:
+\\Srv001\Management\persoon1
+\\Srv001\Management\persoon2
+\\Srv001\ICT\persoon1
+\\Srv001\ICT\persoon2
+
+5. GeefaanalsdeOUdoorgevoerdzalwordenwatdeOrganisatorischegevolgenzullenzijnvoor
+de aangeven afdelingen
+Denk hierbijaande Implementatieeisendiebetrekkinghebbenopdenieuwe OU,wie ziter nu in 
+een SubOU, wie worden de beheerders,etc.
+Informatie over dit onderwerp: http://users.skynet.be/SessieVirussen/cno/Hst6.pdf Op
+deze site vind je informatie hoe een OU aangemaakt kan worden, zie 6.2
+
+6. Wat zijn de technische gevolgen voor het aanpassen/aanbrengen van de
+infrastructuur. Geefaanwatdetechnischegevolgenzijn.Alshetgoedishebjeditook
+beschreveninjeverslag over de gewenste situatie. Je dient zeker aan te geven wat de
+technische veranderingen zullen zijn. Technische veranderingen hebben bijna altijd
+gevolgen.
+Denk hierbij aan:
+• hoe zaken nu centraal worden opgeslagen
+• hebben medewerkers nog steeds toegang tot domeinen
+• zijn er fysieke componentenveranderend/toegevoegd
+• wie voert deze veranderingen door? Intern of uitbesteed.
+• bij uitbesteden hoe zit het met de diensten/services?
+Opdracht 4: Wat zijn de technische gevolgen van case FitYes!
+De case:
+FitYes heefteen locatieerbij,Fityes2.)Op deze locatiezijn 1server2016en3 werkstationmet 
+Windows 10.
+
+De medewerkers vanFitYes locatie1zullen allemaal gaan werkenop1netwerkende route 
+(pad/path) naar deze serverlocaties zullen veranderd worden.
+Daarbij zal iedereen in het vervolg moeten inloggen op het netwerk d.m.v. een RSA key. 
+De netwerkbeheerder zullen nogsteedsvolledig beheerderblijven vanhetnetwerk van FitYes, 
+maar het koppelen van de beide locaties zal gebeuren door de firma Koppel-IT. 
+Beschrijf de technischegevolgen die erbij zijn gekomen door het openen vaneen 2 de locatie.
+
+Uitwerking opdracht 4:
+• Faciliteren van de RSA key aan gebruikers. Wat te doen bij verlies?
+• Beide locaties op 1 netwerk. Is er sprake van een backup netwerk als verbinding eruit ligt. Dus 
+overgaan op 1 netwerk heeft voordelen maar een nadeel is als het netwerk eruit ligt dan
+liggen beide locaties er ook uit.
+• Etc.
+
+7. Geef een implementatie planning en hoe deze aangepakt moet worden.
+Beschrijfbijditonderdeelvandex-aantalimplementatieeisenhoelanghetgaatduren. Denk hierbij 
+aan reële tijden.Beschrijf zekerook de technische onderdelen,beschrijf je dit niet,dan behaal je 
+geenpunten.Beschrijf ookwatde consequenties zijn.En letopeen consequenties isnietalleen 
+negatief.Bijvoorbeeld werkenop1fileserverheeft diversevoordeleni.p.v.2fileserversdie 
+synchroon moeten lopen op data.Bedenk dus bij elke eiswat een consequentie kan zijn.
+Bij het aangeven van geschatte implementatietijd, probeer een tijdframe aan te geven die 
+reëel is. Het is ook niet totaal vreemd bij zaken die uitbesteed zullen worden dat de 
+geschatte implementatietijdnognietisbepaald.Envergeetnietaantegevendatjedejuiste
+Uitvoerder aangeeft.
+Letop! Jebent deze planningaan het invullen als rol van Projectlid.Vermeld dus geen planning 
+vanuit het oogpunt als student. Als je dat doet, dan geeft je onjuiste informatie.
+Uitwerking Punt 7
+Tips:als jenietgoed weet hoe jeeenplanning moet maken vande verschillende implementatie 
+eisen, vermeld dan alle eisen en vermeld ook ‘reëel’ installatietijden.
+Het beste is om de verschillende onderdelen/eisen te categoriseren. Bijvoorbeeld 
+Netwerkwerkzaamheden, installeren OS, configureren werkstations, installeren hardware, etc.
+Vermeld duidelijk de Activiteiten, Consequenties (bij het doorvoeren van de Activiteit), Uitvoerder en Geschatte implementatietijd.
+
+8. Beschrijf risico’s en bedreigingen.
+Lees goed alle Implementatie eisen door. Als tip zoek naar risico’s en bedreigen zoals:
+• Worden zaken zelf uitgevoerd, is personeel gekwalificeerd ja/nee?
+• Wordener zaken uitbesteed.Hoezit het met kennisoverdracht ofde servicesna
+uitbesteding?
+• Wat als planning niet gehaald kan worden door factoren als, wegvallen personeel, externe 
+bedrijf die niet doet wat afgesproken was, etc.
+• Etc.
+
+9. Beschrijf hoeer omgegaan zalworden metde toepassingen/techniek inde toekomst.
+Denk hierbijaande hardwarediezijnnugebruiken. Isdattoekomstbestendig, of zal erop
+korte termijn weer nieuwe hardware ingekocht moeten worden. Denk ook beveiliging, zijn
+de security policiesgoed weggezet zodathet vooreen langere termijn veilig blijftofmoeter
+toch gedacht worden aan andere zaken.
+
+10. Communiceer naar je opdrachtgever, opbouwend hoe de implementatie aangepakt zal worden.
+Uiteraard begin je metde juisteaanhef,alfsluiten van jebrief.Beschrijfje implementatieplan niet 
+vanuit het oogpunt als student maar als projectlid!!!
+Vermeldzekerzakenalstechnischeaanpassingenwantdatheeftnamelijkdemeesteimpact. 
+Maak een goed opbouwende tekst.
+Eentip:Maakvandediverseimplementatieeisengroepjesenbenoemddatinjecommunicatie.
+
+2. Werkproces 2 Implementeren
+Tijdens dit werkproces moeten de volgende onderdelen uitgevoerd worden. Zie ook de opdrachten 
+die ik heb vermeld. Maak ook de opdrachten voor een goeie voorbereiding op het examen.
+1. Instrueren collega’s
+Lees deopdrachtgoeddoor.Enbenoem deonderdelen die jemoet aangeven in je communicatie.
+En begin en eindig je brief zoals dat hoort!
+En nogmaals, beschrijf dit niet als student, maar als projectlid!!!
+2. Implementeren
+2a. Bouw de nieuwe ICT-infrastructuur volgens het implementatieplan.
+2b. Maak een script voor AD-objecten.
+2a. Bouw de nieuwe ICT-infrastructuur volgens het implementatieplan.
+Tijdens het examen zal niet gevraagd worden om alle implementatie eisen door te voeren.
+Tijdens hetexamen zijner16implementatieeisen.Lees goeddoor welke eisen je welmoet
+doorvoeren.
+Installeren van AD directory 
+Hoe installeer je een AD? 
+Bekijk deze site:
+https://www.icttipsandtricks.nl/2016/10/28/opzetten-van-een-windows-server-2012r2-domaincontroller/
+Opdracht 5:GebruikdeVMinSPL(TestomgevingLeergame3)ofgebruikeengeïnstalleerdeVM 
+in je VMtool (VMware player of Virtual box). En installeer de AD service.
+Zelfstudie KT2 B1-K2-W123 7
+Uitwerking werkproces 2 Implementeren
+Een aantal tips bij het installeren van de 
+AD.
+• Vergeetnietje pc te herstarten voorhetpromoten van je domein.Hierbijdien je de juiste 
+Domain name te vermelden bij het Deployen (Deployment).
+(voorbeeld https://www.youtube.com/watch?v=Vo5WAoukDnE of 
+https://www.youtube.com/watch?v=nKcrVtvZvpk )
+Lukthetniet tijdenshet examen geef in ieder geval aan watje aan hetdoen bent(welke 
+stappen) dmv tekst enprintscreens.
+
+• 2 server op 1 domain:
+Bekijk: https://www.youtube.com/watch?v=amzSIpx9fvA (vanaf 6.15) 
+Bekijk: https://www.youtube.com/watch?v=ivTaQJXNDdc
+Tips:
+• Checkof je IPadressing goed is,beide serversmoeten in dezelfde IP-reeks zitten.
+Dit kan je vanuit DCHP regelen of Fixed IP.
+• Zorg er zeker voor datje DNSop je 2
+deServer correspondeert metje 1
+steServer!Oftewel
+je DNS is het IP adres van je 1
+steServer.
+• Op beide Server moet uiteraard AD DS zijn geïnstalleerd.
+• Vergeet niet je bewijs te leveren dat je kan inloggen op de 2
+de server!
+2b. Maak een script voor AD-objecten.
+Script met objecten voortoevoeging aan 
+AD.
+Wat is een script om het doorvoeren van Objecten?
+Een script bijvoorbeeld in Powerschell is een manierd.m.v. 
+commando’sdiversehandelingenin1 keerdoortevoeren,i.p.v.diverseobjectenviadeSever
+Managerteactiveren/configureren.
+Wat zijn Objecten die doorgevoerd kunnen worden d.m.v. een script naar de 
+AD. Objecten kunnen zijn:
+Gebruikers, afdelingen (ICT), computers,OU’s,groepen(ICT-beheerders) aanmaken,etc. 
+Zie deze site voorbeelden van Powershell scripts: 
+https://adamtheautomator.com/active-directory-scripts/#User_Accounts
+De scripts vind je in Github.
+
+Opdracht 6:Open inVM,Powershellenprobeer eenaantal scripts uiten check ofde scripts ook 
+goed zijn doorgevoerd.
+Let op, tijdens het examen moet je script de juiste objecten bevatten!
+Zelfstudie KT2 B1-K2-W123 8
+Uitwerking 2b Maak een script voor..:
+
+• Script voor toevoegen user:
+$Attributes = @{
+Enabled = $true 
+ChangePasswordAtLogon = $true
+UserPrincipalName = "testF@fitplus.nl"
+Name = "TestF"
+GivenName = "Test" 
+Surname = "TestF" 
+DisplayName="TestF"
+Description = "This is a test account "
+Company = "fitplus" 
+Department = "IT" 
+Title = "Mnr"
+AccountPassword = "TotallPassword123" | ConvertTo-SecureString -AsPlainText -Force
+}
+New-ADUser @Attributes
+
+• Script voor User aan groep:
+C:>Import-Module ActiveDirectory
+Add-ADGroupMember -Identity GroupNAME -Member USERNAME
+Tijdens het examenmoetje ook bewijs levereninde vorm van printscreens overde volgende2 
+zaken:
+
+3. Policies nav verschillende policies/implementatie eisen
+• Overzicht van de shared resources 
+De file/printer shares
+Zie site hoe een share aan te maken:
+https://www.c-sharpcorner.com/article/create-shared-folders-in-windows-server-2016-computer-management/
+
+Opdracht7: voerdestappenuit,die je inde link zieten maak eende shareaan.Gebruik 
+hiervoor je VM’s.
+Uitwerking Shares
+ZielinkomopverschillendemanierenSharesaantemaken voorusers. 
+https://www.youtube.com/watch?v=nUPyfxYjDws
+• Overzicht van de geïmplementeerdepolicies
+Policies die je hebt moeten doorvoeren zoals, wachtwoordbeleid. 
+Zie link hoe een van de vele GPO die je kan doorvoeren:
+https://www.lepide.com/blog/top-10-most-important-group-policy-settings-for-preventingsecurity-breaches/
+
+• Policy voor vaste desktop afbeelding:
+Bekijk https://www.youtube.com/watch?v=gNjAVuenuv0&ab_channel=MSFTWebCast
+
+• Policy voor standard printer toevoegen aan (alle) afdelingen
+Bekijk: https://www.youtube.com/watch?v=6Dapft6Rjpk&ab_channel=MSFTWebCast
+
+• Policy: geen toegang tot een bepaalde map.
+Bekijk deze site:
+https://www.lepide.com/how-to/track-permission-changes-on-file-servers.html
+https://www.youtube.com/watch?v=dkzsJuXcZ-s&ab_channel=PatrickHornung (video is 
+uitgebreid ook met event logs).
+Kortom: gpedit.msc, naar Security setting en je Audit (controller) aanzetten, waardoor 
+de server gaat bijhouden hoe vaak een succesvolle login en niet succesvolle login 
+(acces) naar een folder is geweest.
+
+• Policy: geen software mogen installeren.
+Bekijk deze site:
+https://www.youtube.com/watch?v=_jocKOYGNW4&ab_channel=RelaxWithBeauty
+(simpele manier)
+https://www.youtube.com/watch?v=9tRFzSYVThs&ab_channel=MustbeNoob (uitgebreide 
+manier
+https://www.youtube.com/watch?v=n9CSw0tWYno&ab_channel=KapilAryaMicrosoftMVP
+
+• Policy: users mogen niets aanpassen aan de instellingen van hun pc.
+Bekijk deze site:
+https://www.youtube.com/watch?v=5gZgXPG7e4A&ab_channel=NaturalSnaps
+https://newhelptech.wordpress.com/2017/07/11/step-by-step-how-to-prohibit-access-tocontrol-panel-for-domain-users-in-windows-server-2016/
+
+4. Testen
+Tijdens het bouwenvandenieuwe ICT-infrastructuur,moetjehe e.e.a.ook testen.Dit
+bewijs je d.m.v. testrapporten en printscreen.
+Let op,als iets moet testen d.m.v.hetinvullenvaneenchecklist.Geefdan opde juiste manier 
+aanhoeje hethebtgetest,benoemdestappeninieder geval!Entoon/leverbijresultaatook 
+ministens een rapport/printscreen.
+
+5. Documenteren
+Bij ditwerkproces is het enorm vanbelang dat je voldoende en juiste informatie verzamelt ook 
+toont. Documenteer dus zoveel mogelijk wat je doet per onderdeel. Jij moet je 
+verplaatsten in de rol van de opdrachtgever en vraag je af, wat je nu leest aan 
+gedocumenteerde zaken,ofjij datook zo zou willen ontvangen.Plaatstdus nietalleeneen 
+printscreen, maar vermeld tenminste ook tekst bij je bewijzen.
+
+6. Communiceren
+Vermeld wat je hebt doorgevoerd/implementatie. Je zorg voor een nette briefopbouw, aanhef, 
+context, afsluiting brief.
+
+3. Werkproces 3 Evaluatie
+Tijdens dit werkproces moeten de volgende onderdelen uitgevoerd worden. Zie ook de opdrachten 
+die ik heb vermeld. Maak ook de opdrachten voor een goeie voorbereiding op het
+examen.
+1. Inventariseren evaluatie
+2. Opstellen evaluatierapport
+Eenevaluatieishetverzamelen,interpreterenenpresenterenvaninformatieomdewaardevan 
+een resultaat of proces te bepalen.
+Je begint dus eerst met het inventariseren van alle onderdelen die je hebt gedaan tijdens 
+werkproces 1 en 2.
+Jedientdus heel duidelijk te vermelden, hoe hetproject is verlopen, vanplannen tot uitvoeren van 
+de implementatie.Ook hier vermeld je minimaal de diverse gevolgenvan dit project.Enje
+benoemt nietalleenhoezoeenonderdeelverliep,maarooknogmaalswatdegevolgenzijn.Je
+stelteen evaluatierapport op!Benoemdepuntendiegoed zijnverlopenendieniet goed zijn
+verlopen,geef ook relevante verbeterpuntenaan.Hetbenoemen van verbeterpunteniseen
+eis!
+Letop,ookhiersteljehetrapportopalsprojectlid,nietalsstudent!! 
+Tip:
+• Een evaluatierapport is pas compleet als je ook de meningen hebt benoemd van jou
+als projectlid, partijen waarmee je gewerkt hebt, maar zeker ook de mensen
+(management, medewerkers, etc.) binnen het bedrijf. Ook hier is het benoemen van
+de meningen van ‘anderen’ een eis!
+• Lees de opdracht goeddoor, in de opdracht staat namelijk heel duidelijk wat je moet
+doen!
+
+3. Voeren evaluatiegesprek
+Dit onderdeel is een persoonlijk interview met de examinator van Kerntaak 2.
+Deze interview zal alleen worden afgelegd als de beoordelaars van je opgeleverde werk, extra 
+informatie willenhebbenoverje geleverde werk.Zijhebbenaldiverse vragen opgesteld 
+waarop je antwoord zalmoeten geven. Deze vragen hebben betrekking op het hele
+project
