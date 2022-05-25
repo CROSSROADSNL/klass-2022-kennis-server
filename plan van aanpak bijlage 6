@@ -1,0 +1,62 @@
+1	Opdracht
+De functionaliteit van de bestaande netwerkomgeving bij Notariskantoor Notalis dient uitgebreid te worden om de beschikbaarheid van de data te vergroten en het gebruik te vergemakkelijken.
+
+2	Projectdoelstelling
+Binnen dit project zijn de volgende doelen gedefinieerd.
+•	De dossierdata dienen op beide servers te staan.
+•	De dossierdocumenten dienen snel toegankelijk te zijn vanuit beide vestigingen.
+•	De toegang tot de dossierbestanden moet op basis van groepen geregeld gaan worden.
+•	Een selectie van dossierbestanden moet op een veilige manier offline beschikbaar zijn op laptops.
+•	De dossiermappen moeten overzichtelijker worden door afgeronde dossiers te verplaatsen naar een archiefmap.
+•	Via een uitwisselmap moet het uitwisselen van bestanden tussen collega’s mogelijk zijn.
+
+3	Gemaakte afspraken
+Naast de voorgestelde wijzigingen worden ook de servers voorbereid op de Xerox kantoormachines die besteld zijn en binnenkort afgeleverd worden.
+
+4	Projectgrenzen
+Binnen dit project worden verschillende mappen aangemaakt. Het (ver)plaatsen van bestanden in de juiste mappen valt buiten dit project.
+
+5	Uit te voeren activiteiten
+5.1	Aanmaken van mappen en shares
+•	Aanmaken van de volgende mappen en shares op de AF-SERVER
+o	Uitwissel
+o	Scans
+o	RD_Dossiers
+o	RD_Archief
+•	Aanmaken van de volgende mappen en shares op de RD-SERVER
+o	Uitwissel
+o	Scans
+o	AF_Dossiers
+o	AF_Archief
+
+5.2	Instellen synchronisatie
+•	Installeren van Distributed File System op beide servers
+•	Synchronisatie instellen voor dossier- en archiefmappen Amersfoort
+•	Synchronisatie instellen voor dossier- en archiefmappen Rotterdam
+5.3	Aanmaken van groepen en instellen van rechten
+•	Aanmaken van rolgroepen
+•	Aanmaken van toegangsgroepen
+•	Instellen van share rechten
+•	Instellen van NTFS-rechten
+•	Koppelen van rolgroepen aan de toegangsgroepen
+•	Volgens het organogram medewerkers lid maken van de juiste groepen
+5.4	Aanmaken GPO voor encryptie offline bestanden
+•	Aanmaken GPO
+•	GPO koppelen aan juiste OU met computeraccounts van laptops.
+
+5.5	Installeren printer, instellen driver en delen
+•	Aanmaken van een standaard TCP/IP-poort
+•	Koppelen van de juiste printer driver
+•	Aanmaken van een gedeelde printer
+•	De printer publiceren in de Active Directory
+•	Extra opties aanzetten in de printer driver
+•	Alle bij 5.5 genoemde acties uitvoeren op beide servers
+
+5.6	Aanmaken van GPO voor automatische installatie van printer
+•	Aanmaken GPO per vestiging
+•	Koppelen van de printer in GPO
+•	GPO koppelen aan OU met useraccounts van de betreffende vestiging
+5.7	Testen
+•	Uitvoeren van de test zoals beschreven in het testplan
+5.8	Controleren synchronisatie
+•	Controleren of alle wijzigingen op de juiste manier gesynchroniseerd worden
